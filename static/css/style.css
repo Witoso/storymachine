@@ -71,7 +71,7 @@ p {
     width: 90px;
     height: 80px;
     box-sizing: border-box;
-    opacity: 0.9;
+    opacity: 0.80;
     color: rgba(0,0,0,0.9);
     background: #fff;
     border: solid 2px #000;
@@ -122,6 +122,13 @@ label {
     position: absolute;
     left: 1%;
     padding: 10px;
+}
+.highlight {
+    position: absolute;
+    width: 845px;
+    height: 95px;
+    background: yellow;
+    top: 44%;
 }
 
 /*=====*/
