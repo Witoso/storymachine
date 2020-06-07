@@ -118,11 +118,6 @@ label {
     text-align: center;
 }
 
-.winning-row {
-    position: absolute;
-    left: 1%;
-    padding: 10px;
-}
 .highlight {
     position: absolute;
     width: 845px;
