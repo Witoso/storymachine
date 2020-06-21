@@ -1064,6 +1064,7 @@ const SLOTS_PER_REEL = 12;
 // current settings give a value of 149, rounded to 150
 const REEL_RADIUS = 150;
 let emojiMode = false;
+let iconsToPick = faIcons.slice();
 
 function createSlots (ring) {
 
@@ -1083,11 +1084,11 @@ function createSlots (ring) {
         let icon = document.createElement('i');
 
         if (emojiMode == true) {
-            let iconText = pickIcon("emoji");
+            let iconText = pickIcon();
             let text = document.createTextNode(iconText);
             icon.appendChild(text);
         } else {
-            let iconClasses = pickIcon("fa").split(' ');
+            let iconClasses = pickIcon().split(' ');
             icon.classList.add(iconClasses[0], iconClasses[1]);
         }
 
@@ -1133,14 +1134,7 @@ function spin(timer) {
     }
 }
 
-function pickIcon(mode) {
-
-    if (mode == "fa") {
-        iconsToPick = faIcons.slice();
-    } else if (mode == "emoji") {
-        iconsToPick = emojis.slice();
-    }
-
+function pickIcon() {
     let index = Math.floor(Math.random() * iconsToPick.length);
     let icon = iconsToPick[index];
     iconsToPick.splice(index, 1);
@@ -1181,9 +1175,11 @@ ready(() => {
 
         if (emojiMode == true) {
             emojiMode = false;
+            iconsToPick = faIcons.slice();
             document.querySelector('.toggle').innerText = 'Emoji';
         } else {
             emojiMode = true;
+            iconsToPick = emojis.slice();
             document.querySelector('.toggle').innerText = 'Icons';
         }
 
